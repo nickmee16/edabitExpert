@@ -4,7 +4,7 @@ public class ExcelSheetColumnNumber {
 
         System.out.println(titleToNumber("A"));
         System.out.println(titleToNumber("R"));
-        System.out.println(titleToNumber("ABfit "));
+        System.out.println(titleToNumber("AB"));
 
     }
 
@@ -15,10 +15,10 @@ public class ExcelSheetColumnNumber {
         for(int i = 0; i < s.length(); i++) {
 
             if((s.length() - 1) - i == 0) {
-                result += ((int) Character.toLowerCase(s.charAt(i)) - (int) 'a' + 1);
+                result += ((int) s.charAt(i) - (int) 'A' + 1);
 
             } else {
-                result += ((int) Character.toLowerCase(s.charAt(i)) - (int) 'a' + 1) * Math.pow(totalLetters , (s.length() - 1) - i);
+                result += ((int) s.charAt(i) - (int) 'A' + 1) * Math.pow(totalLetters , (s.length() - 1) - i);
             }
         }
 
