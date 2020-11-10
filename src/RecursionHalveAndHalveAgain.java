@@ -2,8 +2,8 @@ public class RecursionHalveAndHalveAgain {
 
     public static void main(String[] args) {
 
-//        System.out.println(halveCount(1324, 98));
-//        System.out.println(halveCount(624, 8));
+        System.out.println(halveCount(1324, 98));
+        System.out.println(halveCount(624, 8));
         System.out.println(halveCount(4123, 1));
 
     }

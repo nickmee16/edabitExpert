@@ -2,9 +2,9 @@ public class RepeatingDecimalsТoFractions {
 
     public static void main(String[] args) {
 
-//        System.out.println(fractions("0.(6)"));
-//        System.out.println(fractions("0.1097(3)"));
-//        System.out.println(fractions("3.(142857)"));
+        System.out.println(fractions("0.(6)"));
+        System.out.println(fractions("0.1097(3)"));
+        System.out.println(fractions("3.(142857)"));
         System.out.println(fractions("2.1(313)"));
 
 
@@ -29,11 +29,11 @@ public class RepeatingDecimalsТoFractions {
 
         int dotIndex = decimal.indexOf('.');
 
-        decimal = decimal.replaceAll("[()]", "");
-
-        while (decimal.substring(dotIndex).length() < 16) {
-            decimal += inParentheses;
+        StringBuilder decimalBuilder = new StringBuilder(decimal.replaceAll("[()]", ""));
+        while (decimalBuilder.substring(dotIndex).length() < 16) {
+            decimalBuilder.append(inParentheses);
         }
+        decimal = decimalBuilder.toString();
 
         double num = Double.parseDouble(decimal);
         int num1 = 2;
@@ -96,24 +96,3 @@ public class RepeatingDecimalsТoFractions {
         return result;
     }
 }
-
-/*
-	public static String fractions(String decimal) {
-		long n1 = Long.parseLong(decimal.replaceAll("(.*)\\(.*", "$1").replace(".", ""));
-    long n2 = Long.parseLong(decimal.replaceAll("[\\(\\)\\.]", ""));
-    int exp1 = decimal.replaceAll("\\d+\\.(\\d*)\\(\\d+\\)", "$1").length();
-    int exp2 = decimal.replaceAll("\\d+\\.(?=.*)", "").replaceAll("[\\(\\)]", "").length();
-
-    long num = n2 - n1;
-    long div = (long)Math.pow(10, exp2) - (long)Math.pow(10, exp1);
-    long gcdiv = gcd(num, div);
-    num = num/gcdiv;
-    div = div/gcdiv;
-
-    return String.format("%d/%d", num, div);
-  }
-
-  private static long gcd(long a, long b) {
-    return (b == 0) ? a : gcd(b, a % b);
-	}
- */

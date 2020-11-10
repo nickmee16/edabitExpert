@@ -4,12 +4,12 @@ public class EnglishToPigLatinTranslator {
 
     public static void main(String[] args) {
 
-//        System.out.println(translateWord("flag"));
-//        System.out.println(translateWord("Apple"));
-//        System.out.println(translateWord("button"));
-//        System.out.println(translateWord(""));
-//        System.out.println(translateSentence("I like to eat honey waffles."));
-//        System.out.println(translateSentence("Do you think it is going to rain today?"));
+        System.out.println(translateWord("flag"));
+        System.out.println(translateWord("Apple"));
+        System.out.println(translateWord("button"));
+        System.out.println(translateWord(""));
+        System.out.println(translateSentence("I like to eat honey waffles."));
+        System.out.println(translateSentence("Do you think it is going to rain today?"));
         System.out.println(translateSentence("He said, \"When will this all end?\""));
 
     }

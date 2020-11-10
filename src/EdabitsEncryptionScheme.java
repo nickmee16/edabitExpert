@@ -2,11 +2,11 @@ public class EdabitsEncryptionScheme {
 
     public static void main(String[] args) {
 
-//        System.out.println(encryption("if man was meant to stay on the ground god would have given us roots"));
-//        System.out.println(encryption("haveaniceday"));
-//        System.out.println(encryption("feedthedog"));
-//        System.out.println(encryption("chillout"));
-//        System.out.println(encryption("A Fool and His Money Are Soon Parted."));
+        System.out.println(encryption("if man was meant to stay on the ground god would have given us roots"));
+        System.out.println(encryption("haveaniceday"));
+        System.out.println(encryption("feedthedog"));
+        System.out.println(encryption("chillout"));
+        System.out.println(encryption("A Fool and His Money Are Soon Parted."));
         System.out.println(encryption("One should not worry over things that have already happened and that cannot be changed."));
 
 
