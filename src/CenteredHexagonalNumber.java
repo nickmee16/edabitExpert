@@ -2,64 +2,89 @@ public class CenteredHexagonalNumber {
 
     public static void main(String[] args) {
 
-        System.out.println(hexLattice(7));
+        System.out.println(hexLattice(2));
+
 
     }
-    //   o o o
-    //  o o o o
-    // o o o o o
-    //  o o o o
-    //   o o o
 
     public static String hexLattice(int n) {
-        int length = 0;
-        boolean isPossible = true;
-        for (int i = 0; i < n; i++) {
-            if (1 + 6 * (i * (i - 1)) / 2 == n) {
-                length = i;
-                break;
-            }
 
-            if (1 + 6 * (i * (i - 1)) / 2 > n) {
-                isPossible = false;
-                break;
-            }
+        StringBuilder str = new StringBuilder();
+        if (n == 1) {
+            return " o ";
         }
 
-        if (!isPossible) {
+        if ((n - 1) % 6 != 0) {
             return "Invalid";
         }
 
-        String result = "";
+        boolean isCorrect = true;
 
-        for(int i = 1, k = length, l = 2 * length - 1; i < length; i++, k--, l++) {
-            for(int j = 0; j < 3 * length; j++) {
+        int top_bottom_num = 0;
 
-                if(j >= k && j <= l) {
-                    result += "o ";
-
-                } else {
-                    result += " ";
-                }
+        for (int i = 0; i < n; i++) {
+            if (1 + 6 * (i * (i - 1)) / 2 == n) {
+                top_bottom_num = i;
+                break;
+            } else if(1 + 6 * (i * (i - 1)) / 2 > n) {
+                isCorrect = false;
+                break;
             }
-
-            result += "\n";
         }
 
-        for(int i = 0, k = 1, l = 3 * length - 2; i < length; i++, k++, l--) {
-
-            for(int j = 0; j < 3 * length; j++) {
-                if(j >= k && j <= l) {
-                    result += "o";
-
-                } else {
-                    result += " ";
-                }
-            }
-
-            result += "\n";
+        if(!isCorrect) {
+            return "Invalid";
         }
 
-        return result;
+        int middleNum = n;
+
+        for (int i = 0; i < 100; i++) {
+            if (middleNum > ((top_bottom_num + i) * 2)) {
+                middleNum = middleNum - ((top_bottom_num + i) * 2);
+            } else {
+                break;
+            }
+        }
+
+        for (int top = top_bottom_num; top < middleNum; top++) {
+            for (int i = 0; i < middleNum - top; i++) {
+                str.append(" ");
+            }
+
+            for (int i = 0; i < top; i++) {
+                str.append(" o");
+            }
+
+            for (int i = 0; i <= middleNum - top; i++) {
+                str.append(" ");
+            }
+            str.append("\n");
+        }
+
+        for (int i = 0; i < middleNum; i++) {
+            str.append(" o");
+        }
+        str.append(" \n");
+
+        for (int bot = middleNum - 1; bot >= top_bottom_num; bot--) {
+            for (int i = 0; i < middleNum - bot; i++) {
+                str.append(" ");
+            }
+
+            for (int i = 0; i < bot; i++) {
+                str.append(" o");
+            }
+
+            for (int i = 0; i <= middleNum - bot; i++) {
+                str.append(" ");
+            }
+            if(bot != top_bottom_num) {
+                str.append("\n");
+            }
+        }
+
+
+        return str.toString();
     }
 }
+
